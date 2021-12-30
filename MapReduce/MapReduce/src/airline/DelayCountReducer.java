@@ -13,7 +13,7 @@ public class DelayCountReducer extends Reducer<Text, Iterable<IntWritable>, Text
          
         for(IntWritable value : values){
             sum += value.get();
-            System.out.println(key.toString() + " : " + sum);
+            System.out.println("##################3"+key.toString() + " : " + sum);
         }
          
         result.set(sum);

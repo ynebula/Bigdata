@@ -1,0 +1,20 @@
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'scala'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies{
+    // https://mvnrepository.com/artifact/org.apache.spark/spark-core
+    implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.1.1'
+}

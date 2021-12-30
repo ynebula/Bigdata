@@ -11,9 +11,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.lib.reduce.IntSumReducer;
  
-import airline.DelayCountMapper;
-import airline.DelayCountReducer;
- 
 public class AirlineDelayCount {
  
     public static void main(String[] args) throws Exception {
@@ -22,18 +19,22 @@ public class AirlineDelayCount {
         Configuration conf = new Configuration();
          
         // 입출력 데이터 경로 확인
-        if(args.length != 2){
-            System.out.println("Usage : AirlineDelayCount <input> <output>");
-            System.exit(2);
-        }
-         
+		/*
+		 * if(args.length != 2){
+		 * System.out.println("Usage : AirlineDelayCount <input> <output>");
+		 * System.exit(2); }
+		 */ 
         // 잡 이름 설정
         Job job = new Job(conf, "AirlineDelayCount");
          
         // 입출력 데이터 경로 설정
-        FileInputFormat.addInputPath(job, new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
-         
+        FileInputFormat.addInputPath(job, new Path("C:\\Users\\ynebu\\workspace\\github\\Bigdata\\MapReduce\\MapReduce\\res\\airlineDelay\\1987.csv"));
+        FileOutputFormat.setOutputPath(job, new Path("C:\\Users\\ynebu\\workspace\\github\\Bigdata\\MapReduce\\MapReduce\\output\\airlineDelay"));
+		/*
+		 * FileInputFormat.addInputPath(job, new Path(args[0]));
+		 * FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		 */
+        
         // 잡 클래스 설정
         job.setJarByClass(AirlineDelayCount.class);
          
